@@ -1,0 +1,193 @@
+let gameState = "nexus"; 
+let choiceA, choiceB;
+let customFont;
+
+function preload() {
+  // Font removed - using default font instead
+}
+
+function setup() {
+  createCanvas(600, 400);
+  textAlign(CENTER);
+  textSize(18);
+  // Using default font
+
+  choiceA = createButton('');
+  choiceA.position(150, 300);
+  choiceA.style('font-family', 'serif');
+  choiceA.style('font-size', '16px');
+  choiceA.style('padding', '10px 20px');
+  choiceA.style('background-color', '#8A2BE2');
+  choiceA.style('color', 'white');
+  choiceA.style('border', 'none');
+  choiceA.style('border-radius', '5px');
+  choiceA.hide();
+
+  choiceB = createButton('');
+  choiceB.position(350, 300);
+  choiceB.style('font-family', 'serif');
+  choiceB.style('font-size', '16px');
+  choiceB.style('padding', '10px 20px');
+  choiceB.style('background-color', '#8A2BE2');
+  choiceB.style('color', 'white');
+  choiceB.style('border', 'none');
+  choiceB.style('border-radius', '5px');
+  choiceB.hide();
+}
+
+function draw() {
+  background("indigo");
+  fill("white");
+  drawScene();
+}
+
+function setupChoiceHandlers(stateA, stateB) {
+  choiceA.mousePressed(() => {
+    gameState = stateA;
+    choiceA.hide();
+    choiceB.hide();
+  });
+
+  choiceB.mousePressed(() => {
+    gameState = stateB;
+    choiceA.hide();
+    choiceB.hide();
+  });
+}
+
+function drawScene() {
+  if (gameState === "nexus") {
+    // Screen 0: The Nexus Hall
+    fill("lavender");
+    textSize(24);
+    text("THE NEXUS HALL", width / 2, 80);
+
+    fill("white");
+    textSize(18);
+    text("You wake up in The Nexus Hall.", width / 2, 140);
+    text("Five glitching doors float before you.", width / 2, 170);
+    text("Which door will you choose?", width / 2, 200);
+
+    if (!choiceA.elt.onclick) {
+      choiceA.html("Open the Gold Door");
+      choiceB.html("Open the Vine Door");
+      choiceA.show();
+      choiceB.show();
+      setupChoiceHandlers("lira", "memory_party");
+    }
+  }
+
+  else if (gameState === "lira") {
+    // Screen 1: Lira's World (Gold Door)
+    background("lavender");
+    fill("plum");
+    textSize(24);
+    text("LIRA'S WORLD", width / 2, 80);
+
+    fill("darkmagenta");
+    textSize(18);
+    text("You meet Lira, a ghosted memory", width / 2, 140);
+    text("of your old best friend.", width / 2, 170);
+    text("She wants closure. What will you do?", width / 2, 200);
+
+    if (!choiceA.elt.onclick) {
+      choiceA.html("Tell her the truth");
+      choiceB.html("Lie to protect her");
+      choiceA.show();
+      choiceB.show();
+      setupChoiceHandlers("final_decision", "memory_party");
+    }
+  }
+
+  else if (gameState === "memory_party") {
+    // Screen 2: Memory Party Glitch
+    background("lightgreen");
+    fill("darkgreen");
+    textSize(24);
+    text("MEMORY PARTY GLITCH", width / 2, 80);
+
+    fill("black");
+    textSize(18);
+    text("You're dropped into a looping memory party.", width / 2, 140);
+    text("Two clever uncles glitch on repeat.", width / 2, 170);
+    text("What will you do?", width / 2, 200);
+
+    if (!choiceA.elt.onclick) {
+      choiceA.html("Break the illusion");
+      choiceB.html("Stay in nostalgia");
+      choiceA.show();
+      choiceB.show();
+      setupChoiceHandlers("good_ending", "loop_ending");
+    }
+  }
+
+  else if (gameState === "final_decision") {
+    // Screen 3: Final Decision (If you told the truth)
+    background("palegoldenrod");
+    fill("darkorange");
+    textSize(24);
+    text("FINAL CHOICE", width / 2, 80);
+
+    fill("darkgoldenrod");
+    textSize(18);
+    text("Lira's eyes shimmer. She says goodbye.", width / 2, 140);
+    text("You're given one final chance.", width / 2, 170);
+    text("What will you choose?", width / 2, 200);
+
+    if (!choiceA.elt.onclick) {
+      choiceA.html("Walk through the portal");
+      choiceB.html("Stay with Lira's ghost");
+      choiceA.show();
+      choiceB.show();
+      setupChoiceHandlers("good_ending", "bittersweet_ending");
+    }
+  }
+
+  // Screen 4: Endings
+  else if (gameState === "good_ending") {
+    background("skyblue");
+    fill("darkblue");
+    textSize(24);
+    text("GOOD ENDING", width / 2, 80);
+
+    fill("navy");
+    textSize(20);
+    text("You escape the Nexus with clarity.", width / 2, 180);
+    text("Freedom awaits beyond the glitch.", width / 2, 220);
+  }
+
+  else if (gameState === "bittersweet_ending") {
+    background("plum");
+    fill("white");
+    textSize(24);
+    text("BITTERSWEET ENDING", width / 2, 80);
+
+    textSize(20);
+    text("Lira fades, but you move on.", width / 2, 180);
+    text("Some memories are worth keeping.", width / 2, 220);
+  }
+
+  else if (gameState === "loop_ending") {
+    background("black");
+    fill("red");
+    textSize(24);
+    text("LOOP ENDING", width / 2, 80);
+
+    fill("white");
+    textSize(20);
+    text("You're stuck in the party forever.", width / 2, 180);
+    text("The nostalgia trap closes around you.", width / 2, 220);
+  }
+
+  else if (gameState === "fake_ending") {
+    background("pink");
+    fill("hotpink");
+    textSize(24);
+    text("FAKE ENDING", width / 2, 80);
+
+    fill("deeppink");
+    textSize(20);
+    text("You live a utopia lie,", width / 2, 180);
+    text("sipping eternal bubble tea.", width / 2, 220);
+  }
+}

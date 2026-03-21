@@ -1,0 +1,127 @@
+let gameState = "start"; 
+let choiceA, choiceB;
+
+function setup() {
+  createCanvas(600, 400);
+  textAlign(CENTER);
+  textSize(16);
+
+  choiceA = createButton('');
+  choiceA.position(150, 300);
+  choiceA.hide();
+
+  choiceB = createButton('');
+  choiceB.position(350, 300);
+  choiceB.hide();
+}
+
+function draw() {
+  background("black");
+  fill("white");
+  drawScene();
+}
+
+function drawScene() {
+  if (gameState === "start") {
+    text("Zayne is in The Nexus Hall.", width / 2, 100);
+    text("He sees two doors.", width / 2, 130);
+
+    choiceA.html("Gold Door");
+    choiceB.html("Vine Door");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "lira";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "loop";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "lira") {
+    text("Lira wants closure.", width / 2, 100);
+    text("What will Zayne do?", width / 2, 130);
+
+    choiceA.html("Tell the truth");
+    choiceB.html("Lie to her");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "final";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "loop";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "loop") {
+    text("Zayne is in a memory loop.", width / 2, 100);
+
+    choiceA.html("Break it");
+    choiceB.html("Stay");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "escape";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "loopEnd";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "final") {
+    text("Lira fades. A portal opens.", width / 2, 100);
+
+    choiceA.html("Enter portal");
+    choiceB.html("Stay with Lira");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "win";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "bittersweet";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  // Endings
+  else if (gameState === "win") {
+    text("Zayne escapes the Nexus.", width / 2, 200);
+  }
+
+  else if (gameState === "bittersweet") {
+    text("Zayne stays with Lira.", width / 2, 200);
+  }
+
+  else if (gameState === "loopEnd") {
+    text("Zayne is trapped in the loop.", width / 2, 200);
+  }
+
+  else if (gameState === "escape") {
+    text("Zayne breaks the illusion.", width / 2, 200);
+  }
+}

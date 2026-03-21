@@ -1,0 +1,218 @@
+let gameState = "splash"; 
+let choiceA, choiceB;
+
+function setup() {
+  createCanvas(700, 450);
+  textAlign(CENTER, TOP);
+  textSize(16);
+  textWrap(WORD);
+
+  choiceA = createButton('');
+  choiceA.position(150, 360);
+  choiceA.hide();
+
+  choiceB = createButton('');
+  choiceB.position(400, 360);
+  choiceB.hide();
+}
+
+function draw() {
+  background(0);
+  fill(255);
+  drawScene();
+}
+
+function drawScene() {
+  if (gameState === "splash") {
+    text("✨ Brave Zayne ✨", width / 2, 100);
+    text("An interactive glitchcore adventure through memory and reality...", width / 2, 130);
+
+    choiceA.html("Begin Adventure");
+    choiceA.show();
+    choiceB.hide();
+
+    choiceA.mousePressed(() => {
+      gameState = "start";
+      choiceA.hide();
+    });
+  }
+
+  else if (gameState === "start") {
+    text(
+      "Zayne wakes up in The Nexus Hall—tiles flickering under his feet, and five floating doors ahead. " +
+      "Two glow the brightest: one gold, one covered in vines.\n\n" +
+      "His pulse quickens. Each door holds a truth. Or a trap.",
+      width / 2, 50, 500
+    );
+
+    choiceA.html("A1: Open the Gold Door (face the past)");
+    choiceB.html("A2: Open the Vine Door (run from it)");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "lira";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "memoryLoop";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "lira") {
+    text(
+      "Behind the golden door is a soft, quiet glitch.\n\n" +
+      "Lira.\n\n" +
+      "She’s exactly as he remembers: smile glowing, eyes glitching slightly, like a bad dream he doesn’t want to wake up from.\n\n" +
+      "She steps closer. \"Zayne… I’ve missed you. But I need the truth. Did you forget me? Did you move on?\"\n\n" +
+      "Zayne’s throat tightens. She doesn't know what happened in the real world.",
+      width / 2, 50, 500
+    );
+
+    choiceA.html("Tell her the truth (She’s already gone)");
+    choiceB.html("Lie (Say you waited for her)");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "truthResult";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "lieResult";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "truthResult") {
+    background("indigo");
+    fill("lavender");
+    text(
+      "Zayne takes a breath. \"You were gone, Lira. I searched… but I had to move on.\"\n\n" +
+      "Her eyes flicker. Not angry—just… soft. \"I always knew. Thank you for telling me.\"\n\n" +
+      "Her body begins to dissolve, pixels floating up like stardust.\n\n" +
+      "Behind her, a shimmering portal appears.",
+      width / 2, 50, 500
+    );
+
+    choiceA.html("Enter the portal (leave the Nexus)");
+    choiceB.html("Stay in the Nexus with her memory");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "winEnding";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "bittersweetEnding";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  else if (gameState === "lieResult") {
+    background("indigo");
+    fill("lightpink");
+    text(
+      "\"I never stopped waiting,\" Zayne says.\n\n" +
+      "Lira’s face lights up—but not with joy. With static. Her smile freezes.\n\n" +
+      "\"That’s not true,\" she whispers. The walls glitch violently.\n\n" +
+      "Zayne falls backward into a new scene…",
+      width / 2, 50, 500
+    );
+
+    choiceA.html("Continue");
+    choiceA.show();
+    choiceB.hide();
+
+    choiceA.mousePressed(() => {
+      gameState = "memoryLoop";
+      choiceA.hide();
+    });
+  }
+
+  else if (gameState === "memoryLoop") {
+    background("green");
+    fill("white");
+    text(
+      "He lands at a party. Familiar. Too familiar.\n\n" +
+      "Two glitching uncles laugh on loop. The music repeats. " +
+      "Fruit baskets never empty. Everyone smiles forever.\n\n" +
+      "Zayne realizes: he’s trapped in a looping memory.\n\n" +
+      "It’s warm. It’s safe. It’s fake.",
+      width / 2, 50, 500
+    );
+
+    choiceA.html("Break the loop (face reality)");
+    choiceB.html("Stay here (forget everything)");
+    choiceA.show();
+    choiceB.show();
+
+    choiceA.mousePressed(() => {
+      gameState = "escapeEnding";
+      choiceA.hide();
+      choiceB.hide();
+    });
+
+    choiceB.mousePressed(() => {
+      gameState = "loopEnding";
+      choiceA.hide();
+      choiceB.hide();
+    });
+  }
+
+  // ENDINGS
+  else if (gameState === "winEnding") {
+    background("skyblue");
+    fill("black");
+    text(
+      "Zayne steps into the portal.\n\n" +
+      "The Nexus fades. Reality rushes back in.\n\n" +
+      "He’s home.\n\n✨ GOOD ENDING ✨",
+      width / 2, 100, 500
+    );
+  }
+
+  else if (gameState === "bittersweetEnding") {
+    background("midnightblue");
+    fill("white");
+    text(
+      "Zayne stays.\n\n" +
+      "He sits where Lira stood, holding onto her last glitch.\n\n" +
+      "It’s not real. But it’s not lonely.\n\n💜 BITTERSWEET ENDING 💜",
+      width / 2, 100, 500
+    );
+  }
+
+  else if (gameState === "loopEnding") {
+    background(10);
+    fill("red");
+    text(
+      "Zayne forgets his name.\n\n" +
+      "He smiles. He laughs with his glitching uncles. He stays at the party.\n\n" +
+      "The music plays forever.\n\n🔁 LOOP ENDING 🔁",
+      width / 2, 100, 500
+    );
+  }
+
+  else if (gameState === "escapeEnding") {
+    background("white");
+    fill("black");
+    text(
+      "Zayne screams and smashes the loop.\n\n" +
+      "The fake world shatters like glass.\n\n" +
+      "He falls into light, unsure where he’s going… but knowing it’s real.\n\n🌟 ESCAPE ENDING 🌟",
+      width / 2, 100, 500
+    );
+  }
+}
