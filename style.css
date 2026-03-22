@@ -109,38 +109,6 @@ section h2 {
   box-shadow: 0 0 24px rgb(97, 163, 214, 0.5);
 }
 
-/* Marvel Characters */
-.marvel-characters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 35px;
-}
-
-.marvel-char {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.marvel-img {
-  width: 100px;
-  height: 130px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
-  display: block;
-  border: 2px solid rgba(255, 215, 0, 0.4);
-}
-
-.char-name {
-  font-size: 12px;
-  font-weight: bold;
-  color: #ffd700;
-  margin-top: 8px;
-}
 
 /* About Me Boxes */
 .about-content {
@@ -158,6 +126,7 @@ section h2 {
   box-shadow: 0 4px 10px rgba(100, 0, 180, 0.1);
   border-left: 4px solid #9b30ff;
   transition: transform 0.3s, box-shadow 0.3s;
+  color: #222;
 }
 
 .about-box:hover {
