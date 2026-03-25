@@ -1,20 +1,36 @@
-About
-
-This is my personal portfolio website. I made it to show who I am, what I like, and some of the things I’m interested in. I tried to keep it simple but still make it look nice and not boring.
-
-Features
-Navigation bar that lets you move between sections easily
-Home section with a picture and short intro
-About Me section split into boxes so it’s easier to read
-Favourite Things section with different categories
-Skills section
-Feature I added:
-
-Tech Used
-HTML
-CSS
-JavaScript
-Replit
-Purpose
-
-I made this website to have one place where I can show my interests, skills, and personality. It’s also a way for me to practice coding and get better at designing websites. so be expecting a lot of updates to the code
+# Elizabeth's Portfolio
+ 
+My personal portfolio website. Just showing off who I am and what I like.
+ 
+[**Live Site**](https://8d26b6b1-17f1-45e8-a0a3-2556de760591-00-18wyrxxp3x8hc.spock.replit.dev/)
+ 
+## What's This?
+ 
+A simple portfolio site I made to practice web dev and show my interests. Nothing fancy, just clean and easy to navigate.
+ 
+## What I Included
+ 
+- Home page with my intro
+- About me section
+- My favorite things (Marvel, games, music, basketball, food, fashion, hobbies)
+- Skills section
+ 
+## Tech Stack
+ 
+- HTML
+- CSS
+- JavaScript
+- p5.js & p5.play
+- Hosted on Replit
+ ## Why I Made This
+ 
+Wanted a place to show my personality and interests while getting better at coding. I'm updating it pretty regularly as I learn new stuff.
+ 
+## What's Next
+ 
+- Dark mode maybe
+- Project showcase
+- Better animations
+- Contact form
+ 
+Feel free to look around or suggest improvements!
