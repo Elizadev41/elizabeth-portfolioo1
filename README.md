@@ -1,12 +1,10 @@
 # Elizabeth's Portfolio
  
-My personal portfolio website. Just showing off who I am and what I like.
- 
-[**Live Site**](https://8d26b6b1-17f1-45e8-a0a3-2556de760591-00-18wyrxxp3x8hc.spock.replit.dev/)
+My personal portfolio website.
  
 ## What's This?
  
-A simple portfolio site I made to practice web dev and show my interests. Nothing fancy, just clean and easy to navigate.
+A simple portfolio site I made to practice web dev and show my interests. 
  
 ## What I Included
  
@@ -27,10 +25,7 @@ A simple portfolio site I made to practice web dev and show my interests. Nothin
 Wanted a place to show my personality and interests while getting better at coding. I'm updating it pretty regularly as I learn new stuff.
  
 ## What's Next
- 
-- Dark mode maybe
 - Project showcase
-- Better animations
 - Contact form
  
 Feel free to look around or suggest improvements!
